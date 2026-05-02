@@ -725,6 +725,7 @@
     <div class="nav-cta">
       <form class="nav-form" id="navDemoForm" onsubmit="return navDemoSubmit(event)" aria-label="Book a demo">
         <input type="email" name="email" placeholder="Work email" required autocomplete="email">
+        <input type="text" name="company" style="position:absolute;left:-9999px;opacity:0;height:0;width:0;" tabindex="-1" autocomplete="off" aria-hidden="true">
         <button type="submit">Book demo <span class="arrow">&rarr;</span></button>
       </form>
     </div>
@@ -1406,13 +1407,39 @@
 </footer>
 
 <script>
+  // REPLACE THIS with your Google Apps Script web app URL
+  var SHEET_URL = 'https://script.google.com/macros/s/AKfycbyljUiyZ69iXSZb8U0hh1xd5sC35AoSxEYn2rwQeko9jM3AQ-Q6LqgynsROD3zQ7qQ/exec';
+
   function navDemoSubmit(e){
     e.preventDefault();
     var f = document.getElementById('navDemoForm');
     var btn = f.querySelector('button');
+    var emailInput = f.querySelector('input[name="email"]');
+    var honeypot = f.querySelector('input[name="company"]');
+
+    // Spam check: if honeypot field is filled, silently reject
+    if (honeypot && honeypot.value) {
+      f.classList.add('sent');
+      btn.innerHTML = 'Thanks \u2014 we\u2019ll be in touch \u2713';
+      emailInput.value = '';
+      return false;
+    }
+
+    var email = emailInput.value;
+
+    // Show success immediately
     f.classList.add('sent');
     btn.innerHTML = 'Thanks \u2014 we\u2019ll be in touch \u2713';
-    f.querySelector('input').value = '';
+    emailInput.value = '';
+
+    // Send to Google Sheets in background
+    fetch(SHEET_URL, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email: email, source: 'nav-form' })
+    }).catch(function(){});
+
     return false;
   }
 </script>
