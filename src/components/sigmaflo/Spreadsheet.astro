@@ -1,0 +1,123 @@
+---
+import Mark from './Mark.astro';
+
+// Rows of the Excel-style workbook, copied from the design.
+const rows = [
+  { n: '412', type: 'Journal', date: '9/29/26', num: 'GJ-10422', name: 'Halden Tooling', amt: '($27,840.00)', bal: '($2,446,743.55)', tag: 'A' },
+  { n: '413', type: 'Journal', date: '9/29/26', num: 'GJ-10431', name: '', amt: '$1,265.10', bal: '($2,445,478.45)', tag: 'D' },
+  { n: '414', type: 'Journal', date: '9/29/26', num: 'GJ-10437', name: '', amt: '$2,930.48', bal: '($2,442,547.97)', tag: 'D' },
+  { n: '415', type: 'Journal', date: '9/30/26', num: 'GJ-10440', name: '', amt: '$719.33', bal: '($2,441,828.64)', tag: '??', q: true },
+  { n: '416', type: 'Journal', date: '9/30/26', num: 'GJ-10446', name: '', amt: '$4,102.75', bal: '($2,437,725.89)', tag: 'D' },
+  { n: '417', type: 'Journal', date: '9/30/26', num: 'GJ-10452', name: 'Northfield Logistics', amt: '($142,315.50)', bal: '($2,580,041.39)', tag: 'C' },
+];
+---
+
+<section class="sf-restate" aria-labelledby="restate-title">
+  <div class="sf-restate-decor" aria-hidden="true">
+    <div class="c1"></div>
+    <div class="c2"></div>
+    <div class="c3"></div>
+  </div>
+  <div class="sf-container sf-restate-inner">
+    <div class="sf-sheet-wrap sf-product">
+      <div class="sf-cutout" aria-hidden="true"></div>
+      <div class="sf-callout top"><span class="d"></span>~610 lines, tagged by hand</div>
+      <div class="sf-callout bottom"><span class="d"></span>13 lines nobody can explain</div>
+
+      <div class="sf-xl" role="img" aria-label="Spreadsheet CF_Q3_FINAL_v3.xlsx with about 610 GL lines tagged by hand, 13 of them untagged">
+        <div class="sf-xl-title">
+          <span class="dots"><span></span><span></span><span></span></span>
+          <span class="name">CF_Q3_FINAL_v3.xlsx</span>
+          <span class="spacer"></span>
+        </div>
+        <div class="sf-xl-formula">
+          <span class="cellref">G614</span><span class="fx">fx</span><span class="formula">=SUMIF(H2:H611,"C*",F2:F611)</span>
+        </div>
+        <div class="sf-scroll-x">
+          <div class="sf-xl-grid">
+            <div class="xr">
+              <div class="xc h"></div>
+              {['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I'].map((c) => <div class="xc h">{c}</div>)}
+            </div>
+            <div class="xr">
+              <div class="xc h">1</div>
+              <div class="xc th">Type</div>
+              <div class="xc th">Date</div>
+              <div class="xc th">Num</div>
+              <div class="xc th">Name</div>
+              <div class="xc th c">Clr</div>
+              <div class="xc th r">Amount</div>
+              <div class="xc th r">Balance</div>
+              <div class="xc th">Tag</div>
+              <div class="xc th">Split</div>
+            </div>
+            <div class="sf-xl-sep"></div>
+            {
+              rows.map((r) => (
+                <div class="xr">
+                  <div class="xc h">{r.n}</div>
+                  <div class="xc">{r.type}</div>
+                  <div class="xc">{r.date}</div>
+                  <div class="xc">{r.num}</div>
+                  <div class="xc">{r.name}</div>
+                  <div class="xc c clr">F</div>
+                  <div class="xc r">{r.amt}</div>
+                  <div class="xc r bal">{r.bal}</div>
+                  <div class:list={['xc tag', { q: r.q }]}>{r.tag}</div>
+                  <div class="xc split">- Split -</div>
+                </div>
+              ))
+            }
+            <div class="xr">
+              <div class="xc h">⋮</div>
+              {Array.from({ length: 9 }).map(() => <div class="xc" />)}
+            </div>
+            <div class="xr xr-sum">
+              <div class="xc h">612</div>
+              <div class="xc r">Tagged D · disposals</div>
+              <div class="xc r">($71,906.44)</div>
+              <div class="xc"></div>
+            </div>
+            <div class="xr xr-sum">
+              <div class="xc h">613</div>
+              <div class="xc r">Tagged A · accrued, not yet paid</div>
+              <div class="xc r">($212,730.00)</div>
+              <div class="xc"></div>
+            </div>
+            <div class="xr xr-sum">
+              <div class="xc h">614</div>
+              <div class="xc r b">Tagged C · capex paid in cash</div>
+              <div class="xc r total">($3,068,442.81)</div>
+              <div class="xc"></div>
+            </div>
+            <div class="xr xr-sum">
+              <div class="xc h">615</div>
+              <div class="xc r red">Untagged · still to explain</div>
+              <div class="xc r">($5,118.27)</div>
+              <div class="xc"></div>
+            </div>
+          </div>
+        </div>
+        <div class="sf-xl-tabs">
+          <span>BS_Rollfwd</span>
+          <span class="active">GL_15000</span>
+          <span>FA_Disposals</span>
+          <span>CF_Tieout</span>
+          <span>Q2_calls</span>
+          <span class="grow"></span>
+          <span>Ready · Count: 610 · Untagged: 13</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="sf-restate-copy">
+      <p class="sf-label"><Mark />The cost of getting it wrong</p>
+      <h2 id="restate-title" class="sf-h2">
+        Cash flow statements are one of the most common reasons public companies restate.
+      </h2>
+      <p class="sf-lede">SEC staff found most of those errors come from simple items, like equipment bought on credit.</p>
+      <p class="sf-sources">Sources: Audit Analytics, SEC</p>
+      <a href="#solution" class="sf-link">See how Sigmaflo finds it →</a>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,14 @@
+---
+// Three-bar mark used before section labels and in "You told us" rules.
+export interface Props {
+  width?: number;
+  height?: number;
+}
+const { width = 14, height = 12 } = Astro.props;
+---
+
+<svg width={width} height={height} viewBox="0 0 22 18" aria-hidden="true">
+  <rect x="0" y="0" width="22" height="4" rx="1" fill="currentColor" opacity="0.32"></rect>
+  <rect x="0" y="7" width="16" height="4" rx="1" fill="currentColor" opacity="0.62"></rect>
+  <rect x="0" y="14" width="10" height="4" rx="1" fill="currentColor"></rect>
+</svg>

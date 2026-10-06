@@ -1,0 +1,15 @@
+---
+// Thin bar above the header. Text and link are props so the copy lives in the page.
+export interface Props {
+  text: string;
+  linkText: string;
+  href: string;
+}
+
+const { text, linkText, href } = Astro.props;
+---
+
+<div class="sf-announce" role="region" aria-label="Announcement">
+  {text}
+  <a href={href} target="_blank" rel="noopener">{linkText}</a>
+</div>

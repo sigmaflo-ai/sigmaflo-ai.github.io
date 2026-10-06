@@ -1,0 +1,52 @@
+{
+  "name": "sigmaflo-website",
+  "version": "2.0.0",
+  "description": "Sigmaflo marketing site (sigmaflo.ai), built on AstroWind.",
+  "type": "module",
+  "private": true,
+  "engines": {
+    "node": ">=22.22.3"
+  },
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "check": "astro check",
+    "format": "prettier -w ."
+  },
+  "dependencies": {
+    "@astrojs/sitemap": "^3.7.3",
+    "astro": "^7.3.1",
+    "astro-seo": "^1.2.0",
+    "limax": "4.2.3",
+    "lodash.merge": "^4.6.2"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.10",
+    "@tailwindcss/vite": "^4.3.3",
+    "@types/js-yaml": "^4.0.9",
+    "@types/lodash.merge": "^4.6.9",
+    "astro-compress": "^2.4.3",
+    "js-yaml": "^4.3.2",
+    "prettier": "^3.9.6",
+    "prettier-plugin-astro": "^0.14.1",
+    "sharp": "^0.35.3",
+    "tailwind-merge": "^3.6.0",
+    "tailwindcss": "^4.3.3",
+    "typescript": "^5.9.3"
+  },
+  "overrides": {
+    "yaml": ">=2.8.3",
+    "astro-compress": {
+      "sharp": "^0.35.3",
+      "svgo": "^4.1.0"
+    },
+    "postcss": {
+      "nanoid": "^3.3.18"
+    },
+    "deepmerge-ts": ">=8.0.2",
+    "fast-uri": "^3.1.6"
+  }
+}

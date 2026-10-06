@@ -1,0 +1,36 @@
+site:
+  name: Sigmaflo
+  site: 'https://sigmaflo.ai'
+  base: '/'
+  trailingSlash: false
+
+# Default SEO metadata
+metadata:
+  title:
+    default: 'Automate your cash flow statement from the GL | Sigmaflo'
+    template: '%s | Sigmaflo'
+  description: 'Stop tracing disposals and capex through the GL by hand. Sigmaflo builds your cash flow statement from ledger transactions, with audit-ready support.'
+  robots:
+    index: true
+    follow: true
+  openGraph:
+    site_name: Sigmaflo
+    images:
+      # TODO: add /public/og-image.png (1200x630). The tag already points at it.
+      - url: 'https://sigmaflo.ai/og-image.png'
+        width: 1200
+        height: 630
+    type: website
+  twitter:
+    cardType: summary_large_image
+
+i18n:
+  language: en
+  textDirection: ltr
+
+apps:
+  blog:
+    isEnabled: false
+
+ui:
+  theme: 'light:only'
