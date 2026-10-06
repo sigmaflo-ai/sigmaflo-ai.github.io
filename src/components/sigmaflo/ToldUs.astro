@@ -1,0 +1,86 @@
+---
+import Mark from './Mark.astro';
+import CheckIcon from './CheckIcon.astro';
+---
+
+<section class="sf-told" aria-labelledby="told-title">
+  <div class="sf-container sf-told-inner">
+    <div class="sf-section-head">
+      <p class="sf-label"><Mark />You told us</p>
+      <h2 id="told-title" class="sf-h2">Built around the questions you already ask.</h2>
+    </div>
+
+    <div class="sf-told-grid">
+      <!-- 01 -->
+      <article class="sf-told-card">
+        <div class="sf-told-head">
+          <span class="sf-quote-mark" aria-hidden="true">“</span>
+          <span class="sf-told-num">01</span>
+        </div>
+        <h3>Capex hiding in AP</h3>
+        <div class="sf-told-rule"><Mark />Sigmaflo<span class="line"></span></div>
+        <p>
+          Finds the equipment bills in AP and shows what was paid (investing) and what's still owed (non-cash), for you
+          to approve.
+        </p>
+        <div class="sf-product">
+          <div class="sf-mini" aria-label="Example: an equipment bill split into paid and unpaid">
+            <div class="sf-mini-row"><span><span class="sf-ref">BILL-4590</span> · Atlas Equipment Co.</span><span class="sf-mono amt">940,000</span></div>
+            <div class="sf-mini-row"><span class="sf-tag sf-tag-invest">Investing</span><span class="sf-mono amt">714,200</span></div>
+            <div class="sf-mini-row"><span class="sf-tag sf-tag-noncash">Non-cash · still in AP</span><span class="sf-mono amt">225,800</span></div>
+            <div class="sf-mini-actions" aria-hidden="true">
+              <span class="sf-fake-btn primary">Approve split</span>
+              <span class="sf-fake-btn secondary">Edit</span>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- 02 -->
+      <article class="sf-told-card">
+        <div class="sf-told-head">
+          <span class="sf-quote-mark" aria-hidden="true">“</span>
+          <span class="sf-told-num">02</span>
+        </div>
+        <h3>Disposals with no rollforward</h3>
+        <div class="sf-told-rule"><Mark />Sigmaflo<span class="line"></span></div>
+        <p>Traces each disposal through the GL, even when there's no fixed asset schedule you can rely on.</p>
+        <div class="sf-product">
+          <div class="sf-mini tight" aria-label="Example: a forklift disposal traced through the GL">
+            <div class="sf-mini-title">Disposal · Forklift <span class="sf-mono" style="font-size: 12px">FA-0192</span></div>
+            <div class="sf-mini-row dim"><span><span class="sf-ref">JE-2240</span> · Cost removed</span><span class="sf-mono amt">(38,000)</span></div>
+            <div class="sf-mini-row dim"><span><span class="sf-ref">JE-2240</span> · Depreciation removed</span><span class="sf-mono amt">29,500</span></div>
+            <div class="sf-mini-sub">
+              <div class="sf-mini-row"><span>Sale proceeds → investing</span><span class="sf-mono amt">6,400</span></div>
+              <div class="sf-mini-row"><span>Loss on sale → added back in operating</span><span class="sf-mono amt">2,100</span></div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- 03 -->
+      <article class="sf-told-card">
+        <div class="sf-told-head">
+          <span class="sf-quote-mark" aria-hidden="true">“</span>
+          <span class="sf-told-num">03</span>
+        </div>
+        <h3>Last quarter's judgment calls</h3>
+        <div class="sf-told-rule"><Mark />Sigmaflo<span class="line"></span></div>
+        <p>Remembers how you treated it and applies it again. If something changes, it tells you before you sign off.</p>
+        <div class="sf-product">
+          <div class="sf-mini tight" aria-label="Example: a prior judgment applied again">
+            <div class="sf-mini-row"><span><strong>Cash sitting at Stripe</strong></span><span class="sf-mono amt">186,420</span></div>
+            <div class="sf-mini-meta">Payment processor clearing · not yet in the bank</div>
+            <div class="sf-mini-check"><CheckIcon /><span>Same as Q2: not cash yet, kept in operating</span></div>
+            <div class="sf-mini-meta indent">Approved by you, Jul 8 · Applied again in Q3</div>
+            <div class="sf-mini-alert"><span class="sf-dot"></span><span><strong>Heads up:</strong> balance is 3× its Q2 level. Worth a look before you sign off.</span></div>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <div class="sf-center">
+      <a href="#book-15" class="btn-primary js-book15">Book 15 minutes at SuiteWorld</a>
+    </div>
+  </div>
+</section>

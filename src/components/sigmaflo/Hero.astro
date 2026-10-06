@@ -1,0 +1,136 @@
+---
+import Mark from './Mark.astro';
+import CheckIcon from './CheckIcon.astro';
+import { LUMA_URL } from '~/navigation';
+---
+
+<section id="top" class="sf-hero" aria-labelledby="hero-title">
+  <div class="sf-container sf-hero-inner">
+    <p class="sf-label"><Mark />Statement of cash flows demystified</p>
+    <h1 id="hero-title" class="sf-h1">Still tracing GL activities <span class="sf-hl">by hand?</span></h1>
+    <p class="sf-lede sf-hero-lede">
+      Sigmaflo does the tracing for you. See what's behind every number on your statement of cash flows, with the
+      support saved for your auditors.
+    </p>
+    <div class="sf-actions">
+      <a href={LUMA_URL} target="_blank" rel="noopener" class="btn-primary">Save a seat at breakfast</a>
+      <a href="#book-15" class="btn js-book15">Book 15 minutes at SuiteWorld</a>
+    </div>
+    <p class="sf-note">Breakfast at Mon Ami Gabi · Tue, Oct 27 · Las Vegas</p>
+
+    <div class="sf-stage sf-product">
+      <div class="sf-stage-board">
+        <!-- Left side cards -->
+        <div class="sf-stage-side">
+          <div class="sf-side-card" aria-label="Example: a question sent to accounts payable and its answer">
+            <div class="sf-kicker">Question sent</div>
+            <div><strong>To J. Rivera (AP)</strong> · <span class="sf-ref">BILL-4590</span></div>
+            <div class="sec">Was the Atlas packaging line paid in full by 9/30?</div>
+            <div class="quote">Paid <span class="sf-mono" style="font-weight: 600">714,200</span> on 9/12. The rest is due in October.</div>
+            <div class="sf-inline-check"><CheckIcon />Answered Oct 2 · used in the split</div>
+          </div>
+          <div class="sf-side-card" aria-label="Example: a prior decision applied again">
+            <div class="sf-kicker">Prior decision applied</div>
+            <div><strong>Stripe clearing</strong>: not cash yet, kept in operating</div>
+            <div class="sm">Same as Q2 · approved by you, Jul 8</div>
+          </div>
+        </div>
+
+        <!-- Statement card -->
+        <div class="sf-stage-main">
+          <div class="sf-card" aria-label="Example: a cash flow statement line traced to its GL transactions">
+            <div class="sf-card-head">
+              <span>Statement of cash flows · Q3 2026</span>
+              <span class="sf-pill-success">Proof = 0</span>
+            </div>
+            <div class="sf-card-kicker sf-kicker">Investing activities</div>
+            <div class="sf-card-total">
+              <span class="label"
+                ><svg
+                  width="14"
+                  height="14"
+                  viewBox="0 0 14 14"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"><path d="m3.5 5.5 3.5 3.5 3.5-3.5"></path></svg
+                >Purchases of property and equipment</span
+              >
+              <span class="sf-mono amt">(1,412,600)</span>
+            </div>
+            <div class="sf-card-sub">Built from 3 GL transactions</div>
+            <div class="sf-scroll-x">
+              <div class="sf-tx-table">
+                <div class="sf-tx-row">
+                  <span class="sf-mono sf-tx-date">07/14</span><span class="sf-ref">BILL-4471</span><span
+                    >Corvan Machine Works</span
+                  ><span class="sf-mono sf-tx-amt">486,000</span>
+                </div>
+                <div class="sf-tx-row">
+                  <span class="sf-mono sf-tx-date">08/02</span><span class="sf-ref">BILL-4528</span><span
+                    >Halden Tooling</span
+                  ><span class="sf-mono sf-tx-amt">212,400</span>
+                </div>
+                <div class="sf-tx-flag">
+                  <div class="sf-tx-row">
+                    <span class="sf-mono sf-tx-date">08/29</span><span class="sf-ref">BILL-4590</span><span
+                      ><strong>Atlas Equipment Co. · in AP</strong></span
+                    ><span class="sf-mono sf-tx-amt">940,000</span>
+                  </div>
+                  <div class="sf-tx-split">
+                    <span class="l"><span class="sf-tag sf-tag-invest">Investing</span>Paid in Q3</span><span
+                      class="sf-mono a">714,200</span
+                    >
+                    <span class="l"><span class="sf-tag sf-tag-noncash">Non-cash</span>Still in AP at 9/30</span><span
+                      class="sf-mono a">225,800</span
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="sf-card-foot">
+              <CheckIcon />
+              <span><strong>Confirmed with J. Rivera (AP)</strong> · Saved as support</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right side cards -->
+        <div class="sf-stage-side">
+          <div class="sf-side-card" aria-label="Example: support saved for one statement line">
+            <div class="sf-kicker">Support saved</div>
+            <div><strong>Purchases of property and equipment</strong></div>
+            <div class="sf-support-list">
+              <div>
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="var(--secondary)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.5 6.5 6 10a2 2 0 0 1-3-3l4.5-4.5a1.3 1.3 0 0 1 2 2L5 9"></path></svg>
+                <span class="sf-mono" style="font-size: 12px">BILL-4471</span><span class="sec">invoice</span>
+              </div>
+              <div>
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="var(--secondary)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.5 6.5 6 10a2 2 0 0 1-3-3l4.5-4.5a1.3 1.3 0 0 1 2 2L5 9"></path></svg>
+                <span class="sf-mono" style="font-size: 12px">BILL-4528</span><span class="sec">invoice</span>
+              </div>
+              <div>
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="var(--secondary)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.5 6.5 6 10a2 2 0 0 1-3-3l4.5-4.5a1.3 1.3 0 0 1 2 2L5 9"></path></svg>
+                <span class="sf-mono" style="font-size: 12px">BILL-4590</span><span class="sec">invoice, payment 9/12</span>
+              </div>
+              <div>
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="var(--secondary)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.5 6.5 6 10a2 2 0 0 1-3-3l4.5-4.5a1.3 1.3 0 0 1 2 2L5 9"></path></svg>
+                <span class="sec">J. Rivera confirmation, Oct 2</span>
+              </div>
+            </div>
+            <div class="sf-ready"><CheckIcon />Ready for the PBC request</div>
+          </div>
+          <div class="sf-side-card" aria-label="Example: three of three transactions traced">
+            <div class="sf-kicker">Traced</div>
+            <div class="sf-traced">
+              <span class="sf-mono big">3 of 3</span><span class="sec">transactions behind this line</span>
+            </div>
+            <div class="sf-bar" aria-hidden="true"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

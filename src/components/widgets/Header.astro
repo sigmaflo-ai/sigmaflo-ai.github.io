@@ -1,0 +1,141 @@
+---
+import Logo from '~/components/Logo.astro';
+import ToggleMenu from '~/components/common/ToggleMenu.astro';
+import Button from '~/components/ui/Button.astro';
+
+import { getHomePermalink, trimSlash } from '~/utils/permalinks';
+import type { CallToAction } from '~/types';
+
+interface Link {
+  text?: string;
+  href?: string;
+  ariaLabel?: string;
+}
+
+export interface Props {
+  id?: string;
+  links?: Array<Link>;
+  actions?: Array<CallToAction>;
+  isSticky?: boolean;
+}
+
+const { id = 'header', links = [], actions = [], isSticky = false } = Astro.props;
+
+const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
+const isActive = (href?: string) => typeof href === 'string' && `/${trimSlash(href)}` === currentPath;
+---
+
+<aw-header>
+  <header
+    class:list={[
+      { sticky: isSticky, relative: !isSticky },
+      'top-0 z-40 flex-none mx-auto w-full border-b transition-[opacity] ease-in-out',
+    ]}
+    style="border-color: var(--aw-line); background: rgba(250,248,243,0.92); backdrop-filter: blur(8px);"
+    {...isSticky ? { 'data-aw-sticky-header': true } : {}}
+    {...id ? { id } : {}}
+  >
+    <div class="absolute inset-0"></div>
+    <div class="relative sf-container sf-header-inner">
+      <div class="flex justify-between items-center w-full lg:w-auto">
+        <a class="sf-header-brand" href={getHomePermalink()} aria-label="Sigmaflo home">
+          <Logo />
+        </a>
+        <div class="flex items-center lg:hidden">
+          <ToggleMenu />
+        </div>
+      </div>
+      <nav
+        class="items-center w-full lg:w-auto hidden lg:flex overflow-y-auto overflow-x-hidden lg:overflow-visible"
+        aria-label="Main navigation"
+      >
+        <ul class="sf-nav-links w-full lg:w-auto">
+          {
+            links.map(({ text, href, ariaLabel }) => (
+              <li>
+                <a class:list={[{ 'aw-link-active': isActive(href) }]} href={href} aria-label={ariaLabel}>
+                  {text}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </nav>
+      <div class="hidden lg:flex items-center sf-header-actions w-full lg:w-auto justify-start lg:justify-end pb-4 lg:pb-0">
+        {actions.map((btnProps) => <Button {...btnProps} class="btn-sm" />)}
+      </div>
+    </div>
+  </header>
+</aw-header>
+
+<style>
+  aw-header {
+    display: contents;
+  }
+</style>
+
+<script>
+  class AwHeader extends HTMLElement {
+    private onScroll?: () => void;
+    private mql?: MediaQueryList;
+    private onMqlChange?: () => void;
+
+    connectedCallback() {
+      const header = this.querySelector<HTMLElement>('#header');
+      const toggle = this.querySelector<HTMLElement>('[data-aw-toggle-menu]');
+      const nav = this.querySelector<HTMLElement>('#header nav');
+      const actions = this.querySelector<HTMLElement>('#header .sf-header-actions');
+
+      const closeMenu = () => {
+        toggle?.classList.remove('expanded');
+        toggle?.setAttribute('aria-expanded', 'false');
+        document.body.classList.remove('overflow-hidden');
+        header?.classList.remove('h-screen', 'expanded');
+        nav?.classList.add('hidden');
+        actions?.classList.add('hidden');
+      };
+
+      toggle?.addEventListener('click', () => {
+        const expanded = toggle.classList.toggle('expanded');
+        toggle.setAttribute('aria-expanded', String(expanded));
+        document.body.classList.toggle('overflow-hidden');
+        header?.classList.toggle('h-screen');
+        header?.classList.toggle('expanded');
+        nav?.classList.toggle('hidden');
+        actions?.classList.toggle('hidden');
+      });
+
+      nav?.addEventListener('click', closeMenu);
+
+      this.mql = window.matchMedia('(max-width: 1023px)');
+      this.onMqlChange = () => closeMenu();
+      this.mql.addEventListener('change', this.onMqlChange);
+
+      if (header?.hasAttribute('data-aw-sticky-header')) {
+        let ticking = false;
+        const applyStyles = () => {
+          if (window.scrollY > 60) header.classList.add('scroll');
+          else header.classList.remove('scroll');
+          ticking = false;
+        };
+        this.onScroll = () => {
+          if (!ticking) {
+            window.requestAnimationFrame(applyStyles);
+            ticking = true;
+          }
+        };
+        applyStyles();
+        document.addEventListener('scroll', this.onScroll, { passive: true });
+      }
+    }
+
+    disconnectedCallback() {
+      if (this.onScroll) document.removeEventListener('scroll', this.onScroll);
+      if (this.mql && this.onMqlChange) this.mql.removeEventListener('change', this.onMqlChange);
+    }
+  }
+
+  if (!customElements.get('aw-header')) {
+    customElements.define('aw-header', AwHeader);
+  }
+</script>

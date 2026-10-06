@@ -1,0 +1,47 @@
+---
+import Logo from '~/components/Logo.astro';
+import { getHomePermalink } from '~/utils/permalinks';
+
+interface Link {
+  text?: string;
+  href?: string;
+  ariaLabel?: string;
+}
+
+interface Links {
+  title?: string;
+  links: Array<Link>;
+}
+
+export interface Props {
+  tagline?: string;
+  links: Array<Links>;
+  footNote?: string;
+}
+
+const { tagline = '', links = [], footNote = '' } = Astro.props;
+---
+
+<footer class="sf-footer">
+  <div class="sf-container sf-footer-grid">
+    <div class="sf-footer-brand">
+      <a href={getHomePermalink()} aria-label="Sigmaflo home">
+        <Logo size="footer" />
+      </a>
+      {tagline && <p class="sf-footer-tagline">{tagline}</p>}
+    </div>
+    {
+      links.map(({ title, links }) => (
+        <nav class="sf-footer-col" aria-label={title}>
+          <span class="title">{title}</span>
+          {links.map(({ text, href, ariaLabel }) => (
+            <a href={href} aria-label={ariaLabel}>
+              {text}
+            </a>
+          ))}
+        </nav>
+      ))
+    }
+  </div>
+  <div class="sf-container sf-footer-bottom">{footNote}</div>
+</footer>

@@ -1,0 +1,41 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import Announcement from '~/components/widgets/Announcement.astro';
+
+import Hero from '~/components/sigmaflo/Hero.astro';
+import Problem from '~/components/sigmaflo/Problem.astro';
+import Spreadsheet from '~/components/sigmaflo/Spreadsheet.astro';
+import Solution from '~/components/sigmaflo/Solution.astro';
+import ToldUs from '~/components/sigmaflo/ToldUs.astro';
+import CoffeeCTA from '~/components/sigmaflo/CoffeeCTA.astro';
+import { LUMA_URL } from '~/navigation';
+
+const metadata = {
+  title: 'Automate your cash flow statement from the GL | Sigmaflo',
+  ignoreTitleTemplate: true,
+};
+---
+
+<Layout metadata={metadata}>
+  {/* ============================================================
+      SUITEWORLD ANNOUNCEMENT BAR: START
+      Delete this one <Announcement ... /> block to remove the bar
+      after SuiteWorld 2026.
+      ============================================================ */}
+  <Announcement
+    slot="announcement"
+    text="Meet us at SuiteWorld 2026 · Las Vegas · Oct 26–27 ·"
+    linkText="Save a seat at breakfast →"
+    href={LUMA_URL}
+  />
+  {/* ============================================================
+      SUITEWORLD ANNOUNCEMENT BAR: END
+      ============================================================ */}
+
+  <Hero />
+  <Problem />
+  <Spreadsheet />
+  <Solution />
+  <ToldUs />
+  <CoffeeCTA />
+</Layout>

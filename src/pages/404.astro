@@ -1,0 +1,16 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import { getHomePermalink } from '~/utils/permalinks';
+
+const metadata = { title: 'Page not found', robots: { index: false, follow: true } };
+---
+
+<Layout metadata={metadata}>
+  <section class="sf-container sf-placeholder" aria-labelledby="page-title">
+    <p class="sf-label">404</p>
+    <h1 id="page-title" class="sf-h2">Sorry, we couldn't find this page.</h1>
+    <div class="sf-actions">
+      <a href={getHomePermalink()} class="btn-primary">Back to homepage</a>
+    </div>
+  </section>
+</Layout>

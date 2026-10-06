@@ -1,0 +1,13 @@
+---
+// Three-bar mark (favicon.svg) next to the Outfit 700 wordmark.
+export interface Props {
+  size?: 'header' | 'footer';
+}
+const { size = 'header' } = Astro.props;
+const mark = size === 'header' ? 22 : 20;
+---
+
+<span class:list={['sf-logo', { 'sf-logo-footer': size === 'footer' }]}>
+  <img class="sf-logo-mark" src="/favicon.svg" alt="" aria-hidden="true" width={mark} height={mark} />
+  <span class="sf-wordmark">sigmaflo</span>
+</span>

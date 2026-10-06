@@ -1,0 +1,143 @@
+---
+// Inline SVG trace diagram, copied from the design. Content is fully visible
+// by default; the one-shot draw-in runs when the diagram scrolls into view
+// (see the script below) and never under prefers-reduced-motion.
+const col = 'font-size: 11px; font-weight: 600; letter-spacing: 0.06em; fill: #4a5460';
+const faintLabel = 'font-size: 10.5px; font-weight: 600; letter-spacing: 0.05em; fill: #9aa09a';
+const faint = 'font-size: 12.5px; fill: #9aa09a';
+const faintNum = 'font-size: 13px; fill: #9aa09a';
+---
+
+<div class="sf-trace sf-product" data-trace>
+  <div class="sf-trace-box">
+    <div>
+      <svg
+        viewBox="0 0 1160 520"
+        width="100%"
+        role="img"
+        aria-label="Trace of one cash flow line, Purchases of property and equipment (1,412,600), to two accounts, three GL bills plus 11 more lines, a capitalization policy, and your saved decision on the unpaid Atlas bill"
+      >
+        <rect x="0" y="0" width="290" height="520" rx="14" fill="#f6f4ee"></rect>
+        <text class="t" x="16" y="28" style={col}>STATEMENT</text>
+        <rect x="310" y="0" width="270" height="520" rx="14" fill="#f6f4ee"></rect>
+        <text class="t" x="326" y="28" style={col}>ACCOUNTS</text>
+        <rect x="600" y="0" width="290" height="520" rx="14" fill="#f6f4ee"></rect>
+        <text class="t" x="616" y="28" style={col}>GL TRANSACTIONS</text>
+        <rect x="910" y="0" width="250" height="520" rx="14" fill="#f6f4ee"></rect>
+        <text class="t" x="926" y="28" style={col}>POLICIES AND DECISIONS</text>
+
+        <path class="tr-path" pathLength="1" d="M276 250 C 296 250, 300 150, 326 150" fill="none" stroke="#3b7a5c" stroke-width="2" stroke-linecap="round" style="animation-delay: 0.6s"></path>
+        <path class="tr-path" pathLength="1" d="M276 250 C 296 250, 300 352, 326 352" fill="none" stroke="#3b7a5c" stroke-width="2" stroke-linecap="round" style="animation-delay: 0.6s"></path>
+        <path class="tr-path" pathLength="1" d="M564 150 C 584 150, 590 92, 616 92" fill="none" stroke="#3b7a5c" stroke-width="2" stroke-linecap="round" style="animation-delay: 1.3s"></path>
+        <path class="tr-path" pathLength="1" d="M564 150 C 584 150, 590 182, 616 182" fill="none" stroke="#3b7a5c" stroke-width="2" stroke-linecap="round" style="animation-delay: 1.4s"></path>
+        <path class="tr-path" pathLength="1" d="M564 150 C 584 150, 590 282, 616 282" fill="none" stroke="#3b7a5c" stroke-width="2" stroke-linecap="round" style="animation-delay: 1.5s"></path>
+        <path class="tr-path" pathLength="1" d="M564 150 C 584 150, 590 404, 616 404" fill="none" stroke="#b8bdb6" stroke-width="2" stroke-linecap="round" style="animation-delay: 1.55s"></path>
+        <path class="tr-path" pathLength="1" d="M564 352 C 584 352, 590 290, 616 290" fill="none" stroke="#d4962a" stroke-width="2" stroke-linecap="round" style="animation-delay: 1.6s"></path>
+        <path class="tr-path" pathLength="1" d="M874 150 C 894 150, 900 128, 926 128" fill="none" stroke="#b8bdb6" stroke-width="2" stroke-linecap="round" style="animation-delay: 2.1s"></path>
+        <path class="tr-path" pathLength="1" d="M874 286 C 894 286, 900 346, 926 346" fill="none" stroke="#d4962a" stroke-width="2" stroke-linecap="round" style="animation-delay: 2.3s"></path>
+
+        <g class="tr-node" style="animation-delay: 0s">
+          <text class="t" x="30" y="84" text-anchor="start" style={faintLabel}>OPERATING ACTIVITIES</text>
+          <text class="t" x="30" y="110" text-anchor="start" style={faint}>Change in accounts payable</text>
+          <text class="m" x="262" y="110" text-anchor="end" style={faintNum}>418,300</text>
+          <text class="t" x="30" y="136" text-anchor="start" style={faint}>Depreciation</text>
+          <text class="m" x="262" y="136" text-anchor="end" style={faintNum}>1,204,310</text>
+          <text class="t" x="30" y="162" text-anchor="start" style={faintLabel}>INVESTING ACTIVITIES</text>
+        </g>
+        <g class="tr-node" style="animation-delay: 0s">
+          <rect x="16" y="212" width="260" height="80" rx="10" fill="#ecedfe" stroke="#5b5df0" stroke-width="1.5"></rect>
+          <text class="t" x="32" y="240" text-anchor="start" style="font-size: 14px; font-weight: 600; fill: #171c20">Purchases of property</text>
+          <text class="t" x="32" y="260" text-anchor="start" style="font-size: 14px; font-weight: 600; fill: #171c20">and equipment</text>
+          <text class="m" x="260" y="280" text-anchor="end" style="font-size: 14px; font-weight: 600; fill: #171c20">(1,412,600)</text>
+        </g>
+        <g class="tr-node" style="animation-delay: 0.2s">
+          <text class="t" x="30" y="322" text-anchor="start" style={faint}>Proceeds from sale of equipment</text>
+          <text class="m" x="262" y="344" text-anchor="end" style={faintNum}>15,500</text>
+          <text class="t" x="30" y="376" text-anchor="start" style={faintLabel}>FINANCING ACTIVITIES</text>
+          <text class="t" x="30" y="402" text-anchor="start" style={faint}>Repayment of term loan</text>
+          <text class="m" x="262" y="424" text-anchor="end" style={faintNum}>(600,000)</text>
+        </g>
+        <g class="tr-node" style="animation-delay: 3s">
+          <text class="t" x="16" y="476" text-anchor="start" style="font-size: 12.5px; font-weight: 600; fill: #2d5a45">✓ 1,638,400 − 225,800 = 1,412,600</text>
+          <text class="t" x="16" y="496" text-anchor="start" style="font-size: 12px; fill: #7d857c">Every number traced to its source</text>
+        </g>
+
+        <g class="tr-node" style="animation-delay: 0.9s">
+          <rect x="326" y="108" width="238" height="96" rx="10" fill="#ffffff" stroke="#e6e6e0" stroke-width="1"></rect>
+          <text class="t" x="342" y="136" text-anchor="start" style="font-size: 14px; font-weight: 600; fill: #171c20">15000 · Equipment</text>
+          <text class="t" x="342" y="160" text-anchor="start" style="font-size: 12.5px; fill: #4a5460">Additions</text>
+          <text class="m" x="548" y="160" text-anchor="end" style="font-size: 14px; font-weight: 600; fill: #171c20">1,638,400</text>
+          <text class="t" x="342" y="184" text-anchor="start" style="font-size: 11.5px; fill: #7d857c">14 GL lines</text>
+        </g>
+        <g class="tr-node" style="animation-delay: 0.9s">
+          <rect x="326" y="310" width="238" height="96" rx="10" fill="#ffffff" stroke="#e6e6e0" stroke-width="1"></rect>
+          <text class="t" x="342" y="338" text-anchor="start" style="font-size: 14px; font-weight: 600; fill: #171c20">20000 · Accounts payable</text>
+          <text class="t" x="342" y="362" text-anchor="start" style="font-size: 12.5px; fill: #4a5460">Equipment still owed</text>
+          <text class="m" x="548" y="362" text-anchor="end" style="font-size: 14px; font-weight: 600; fill: #171c20">(225,800)</text>
+          <text class="t" x="342" y="386" text-anchor="start" style="font-size: 11.5px; fill: #7d857c">at 9/30</text>
+        </g>
+
+        <g class="tr-node" style="animation-delay: 1.8s">
+          <rect x="616" y="64" width="258" height="58" rx="10" fill="#ffffff" stroke="#e6e6e0" stroke-width="1"></rect>
+          <text class="m" x="632" y="88" text-anchor="start" style="font-size: 12px; font-weight: 600; fill: #5b5df0">BILL-4471</text>
+          <text class="t" x="632" y="108" text-anchor="start" style="font-size: 12.5px; fill: #4a5460">Corvan Machine Works</text>
+          <text class="m" x="858" y="99" text-anchor="end" style="font-size: 14px; font-weight: 600; fill: #171c20">486,000</text>
+        </g>
+        <g class="tr-node" style="animation-delay: 1.9s">
+          <rect x="616" y="154" width="258" height="58" rx="10" fill="#ffffff" stroke="#e6e6e0" stroke-width="1"></rect>
+          <text class="m" x="632" y="178" text-anchor="start" style="font-size: 12px; font-weight: 600; fill: #5b5df0">BILL-4528</text>
+          <text class="t" x="632" y="198" text-anchor="start" style="font-size: 12.5px; fill: #4a5460">Halden Tooling</text>
+          <text class="m" x="858" y="189" text-anchor="end" style="font-size: 14px; font-weight: 600; fill: #171c20">212,400</text>
+        </g>
+        <g class="tr-node" style="animation-delay: 2.0s">
+          <rect x="616" y="250" width="258" height="72" rx="10" fill="#fbf1dc" stroke="#d4962a" stroke-width="1.5"></rect>
+          <text class="m" x="632" y="276" text-anchor="start" style="font-size: 12px; font-weight: 600; fill: #5b5df0">BILL-4590</text>
+          <text class="t" x="632" y="298" text-anchor="start" style="font-size: 12.5px; fill: #4a5460">Atlas Equipment Co.</text>
+          <text class="m" x="858" y="288" text-anchor="end" style="font-size: 14px; font-weight: 600; fill: #171c20">940,000</text>
+          <text class="t" x="632" y="314" text-anchor="start" style="font-size: 11px; fill: #a07420">Paid 714,200 · owed 225,800</text>
+        </g>
+        <g class="tr-node" style="animation-delay: 2.05s">
+          <rect x="616" y="384" width="258" height="40" rx="10" fill="#ffffff" stroke="#e6e6e0" stroke-width="1"></rect>
+          <text class="t" x="632" y="409" text-anchor="start" style="font-size: 12.5px; fill: #4a5460">+ 11 more lines</text>
+          <text class="t" x="858" y="409" text-anchor="end" style="font-size: 12px; font-weight: 600; fill: #2d5a45">0 untraced</text>
+        </g>
+
+        <g class="tr-node" style="animation-delay: 2.2s">
+          <rect x="926" y="96" width="218" height="72" rx="10" fill="#ffffff" stroke="#e6e6e0" stroke-width="1"></rect>
+          <text class="t" x="942" y="122" text-anchor="start" style="font-size: 11.5px; fill: #7d857c">Policy applied</text>
+          <text class="t" x="942" y="144" text-anchor="start" style="font-size: 14px; font-weight: 600; fill: #171c20">Capitalize equipment</text>
+          <text class="t" x="942" y="160" text-anchor="start" style="font-size: 12.5px; fill: #4a5460">over 5,000</text>
+        </g>
+        <g class="tr-node" style="animation-delay: 2.6s">
+          <rect x="926" y="296" width="218" height="136" rx="10" fill="#ffffff" stroke="#e6e6e0" stroke-width="1"></rect>
+          <text class="t" x="942" y="322" text-anchor="start" style="font-size: 11.5px; fill: #7d857c">BILL-4590 · Q3</text>
+          <text class="t" x="942" y="346" text-anchor="start" style="font-size: 14px; font-weight: 600; fill: #171c20">225,800 still in AP</text>
+          <text class="t" x="942" y="368" text-anchor="start" style="font-size: 12.5px; fill: #4a5460">Non-cash, disclosed</text>
+          <text class="t" x="942" y="396" text-anchor="start" style="font-size: 12.5px; font-weight: 600; fill: #2d5a45">✓ Approved by you, Oct 2</text>
+          <text class="t" x="942" y="416" text-anchor="start" style="font-size: 11.5px; fill: #7d857c">Applied again next quarter</text>
+        </g>
+      </svg>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Play the draw-in once, when the diagram enters the viewport. Without
+  // JavaScript, or with reduced motion, the diagram simply shows complete.
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const diagrams = document.querySelectorAll<HTMLElement>('[data-trace]');
+  if (!reduce && 'IntersectionObserver' in window) {
+    const io = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-animating');
+            io.unobserve(entry.target);
+          }
+        }
+      },
+      { threshold: 0.3 }
+    );
+    diagrams.forEach((d) => io.observe(d));
+  }
+</script>

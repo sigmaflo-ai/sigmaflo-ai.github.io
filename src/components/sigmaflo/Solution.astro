@@ -1,0 +1,54 @@
+---
+import Mark from './Mark.astro';
+import TraceDiagram from './TraceDiagram.astro';
+
+const steps = [
+  { n: '1', title: 'Read directly from your ERP', text: 'Sort and trace transactions into cash and non-cash.' },
+  {
+    n: '2',
+    title: 'Build rollforwards',
+    text: 'Traces every activity to find the additions, disposals, transfers and adjustments in each account.',
+  },
+  {
+    n: '3',
+    title: 'Apply policies and judgments',
+    text: "Remembers and applies prior judgments. Flags for review when there's no precedent.",
+  },
+  {
+    n: '4',
+    title: 'Finish and hand over',
+    text: 'An audit-ready package with lineage for every number, your comments and judgments, and full support.',
+    final: true,
+  },
+];
+---
+
+<section id="solution" aria-labelledby="solution-title">
+  <div class="sf-container sf-section-inner">
+    <div class="sf-section-head" style="max-width: 860px">
+      <p class="sf-label"><Mark />The solution</p>
+      <h2 id="solution-title" class="sf-h2">Build your cash flow statements with full support, without the digging</h2>
+      <p class="sf-solution-tag">Sigmaflo does the digging. You make the calls.</p>
+    </div>
+
+    <div class="sf-solution-body">
+      <div class="sf-steps">
+        {
+          steps.map((s) => (
+            <div class:list={['sf-step', { final: s.final }]}>
+              <div class="sf-step-head">
+                <span class="sf-step-num" aria-hidden="true">
+                  {s.n}
+                </span>
+                <h3>{s.title}</h3>
+              </div>
+              <p>{s.text}</p>
+            </div>
+          ))
+        }
+      </div>
+
+      <TraceDiagram />
+    </div>
+  </div>
+</section>

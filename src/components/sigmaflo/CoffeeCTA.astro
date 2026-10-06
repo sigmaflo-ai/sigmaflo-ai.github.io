@@ -1,0 +1,33 @@
+---
+import Mark from './Mark.astro';
+import Book15Form from './Book15Form.astro';
+import { LUMA_URL } from '~/navigation';
+---
+
+<section id="suiteworld" aria-labelledby="suiteworld-title">
+  <div class="sf-container sf-cta-inner">
+    <div class="sf-cta-panel">
+      <svg width="56" height="56" viewBox="0 0 52 52" role="img" aria-label="Coffee cup with steam rising as three ledger bars">
+        <rect x="0.75" y="0.75" width="50.5" height="50.5" rx="10" fill="#fff" stroke="#ffffff" stroke-width="1.5"></rect>
+        <rect x="14" y="9" width="18" height="3.5" rx="1" fill="#3b7a5c" opacity="0.32"></rect>
+        <rect x="14" y="14.5" width="13" height="3.5" rx="1" fill="#3b7a5c" opacity="0.62"></rect>
+        <rect x="14" y="20" width="8" height="3.5" rx="1" fill="#3b7a5c"></rect>
+        <path d="M12 27h22v6.5a8 8 0 0 1-8 8h-6a8 8 0 0 1-8-8z" fill="none" stroke="#171c20" stroke-width="2" stroke-linejoin="round"></path>
+        <path d="M34 29.5h2.5a3.75 3.75 0 0 1 0 7.5H33.4" fill="none" stroke="#171c20" stroke-width="2" stroke-linecap="round"></path>
+        <path d="M9 45h28" stroke="#171c20" stroke-width="2" stroke-linecap="round"></path>
+      </svg>
+      <p class="sf-label on-dark"><Mark />Meet us at SuiteWorld 2026 · Las Vegas · Oct 26–27</p>
+      <h2 id="suiteworld-title" class="sf-h2">Cash flow and Coffee</h2>
+      <p class="sf-lede">
+        A small table for practitioners building financial statements in the industry or as consultants. One question
+        to talk through: what's the hardest number on the cash flow statement to explain, and how do you do it today?
+      </p>
+      <div class="sf-cta-details"><span>Tue, Oct 27 · 7–9 am</span><span>Mon Ami Gabi · Paris Las Vegas</span></div>
+      <div class="sf-actions" style="padding-top: 0">
+        <a href={LUMA_URL} target="_blank" rel="noopener" class="btn btn-on-dark">RSVP for Breakfast Event</a>
+      </div>
+      <Book15Form buttonText="Book 15 minutes instead" />
+      <p class="sf-cta-note">Opens on Luma · the host confirms each seat</p>
+    </div>
+  </div>
+</section>
