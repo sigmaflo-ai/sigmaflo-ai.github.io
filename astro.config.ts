@@ -11,7 +11,7 @@ import astrowind from './vendor/integration';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 // Placeholder pages carry <meta name="robots" content="noindex">; keep them out of the sitemap too.
-const NOINDEX = /\/(product|privacy|security)\/?$/;
+const NOINDEX = /\/(product|privacy)\/?$/;
 
 export default defineConfig({
   output: 'static',

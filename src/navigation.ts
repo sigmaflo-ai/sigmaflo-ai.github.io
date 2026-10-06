@@ -8,6 +8,7 @@ export const headerData = {
     { text: 'Problem', href: getPermalink('/#problem') },
     { text: 'How it works', href: getPermalink('/#solution') },
     { text: 'SuiteWorld', href: getPermalink('/#suiteworld') },
+    { text: 'Security', href: getPermalink('/security') },
   ],
   actions: [{ text: 'Save a seat', href: LUMA_URL, target: '_blank', variant: 'primary' }],
 };

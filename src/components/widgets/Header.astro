@@ -53,7 +53,12 @@ const isActive = (href?: string) => typeof href === 'string' && `/${trimSlash(hr
           {
             links.map(({ text, href, ariaLabel }) => (
               <li>
-                <a class:list={[{ 'aw-link-active': isActive(href) }]} href={href} aria-label={ariaLabel}>
+                <a
+                  class:list={[{ 'aw-link-active': isActive(href) }]}
+                  href={href}
+                  aria-label={ariaLabel}
+                  aria-current={isActive(href) ? 'page' : undefined}
+                >
                   {text}
                 </a>
               </li>
