@@ -1,6 +1,7 @@
 ---
 import Mark from './Mark.astro';
 import CheckIcon from './CheckIcon.astro';
+import { BOOK_URL } from '~/navigation';
 ---
 
 <section class="sf-told" aria-labelledby="told-title">
@@ -80,7 +81,7 @@ import CheckIcon from './CheckIcon.astro';
     </div>
 
     <div class="sf-center">
-      <a href="#book-15" class="btn-primary js-book15">Book 15 minutes at SuiteWorld</a>
+      <a href={BOOK_URL} target="_blank" rel="noopener" class="btn-primary">Book 15 minutes at SuiteWorld</a>
     </div>
   </div>
 </section>

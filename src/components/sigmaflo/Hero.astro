@@ -1,7 +1,7 @@
 ---
 import Mark from './Mark.astro';
 import CheckIcon from './CheckIcon.astro';
-import { LUMA_URL } from '~/navigation';
+import { LUMA_URL, BOOK_URL } from '~/navigation';
 ---
 
 <section id="top" class="sf-hero" aria-labelledby="hero-title">
@@ -14,7 +14,7 @@ import { LUMA_URL } from '~/navigation';
     </p>
     <div class="sf-actions">
       <a href={LUMA_URL} target="_blank" rel="noopener" class="btn-primary">Save a seat at breakfast</a>
-      <a href="#book-15" class="btn js-book15">Book 15 minutes at SuiteWorld</a>
+      <a href={BOOK_URL} target="_blank" rel="noopener" class="btn">Book 15 minutes at SuiteWorld</a>
     </div>
     <p class="sf-note">Breakfast at Mon Ami Gabi · Tue, Oct 27 · Las Vegas</p>
 

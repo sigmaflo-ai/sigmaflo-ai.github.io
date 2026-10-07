@@ -1,7 +1,6 @@
 ---
 import Mark from './Mark.astro';
-import Book15Form from './Book15Form.astro';
-import { LUMA_URL } from '~/navigation';
+import { LUMA_URL, BOOK_URL } from '~/navigation';
 ---
 
 <section id="suiteworld" aria-labelledby="suiteworld-title">
@@ -25,8 +24,8 @@ import { LUMA_URL } from '~/navigation';
       <div class="sf-cta-details"><span>Tue, Oct 27 · 7–9 am</span><span>Mon Ami Gabi · Paris Las Vegas</span></div>
       <div class="sf-actions" style="padding-top: 0">
         <a href={LUMA_URL} target="_blank" rel="noopener" class="btn btn-on-dark">RSVP for Breakfast Event</a>
+        <a href={BOOK_URL} target="_blank" rel="noopener" class="btn btn-outline-light">Book 15 minutes instead</a>
       </div>
-      <Book15Form buttonText="Book 15 minutes instead" />
       <p class="sf-cta-note">Opens on Luma for RSVP</p>
     </div>
   </div>

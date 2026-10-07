@@ -1,6 +1,8 @@
 import { getPermalink } from './utils/permalinks';
 
 export const LUMA_URL = 'https://luma.com/lv6wgy6r';
+export const BOOK_URL =
+  'https://calendar.google.com/appointments/schedules/AcZssZ3A41Nz7Tjh7PXhzDknB_5UbP9kVJf-s58JNnHXmTCsBg5ADYVkf6h-YNkrJvRnceaHiRs8SW6r';
 export const CONTACT_EMAIL = 'hello@sigmaflo.ai';
 
 export const headerData = {
